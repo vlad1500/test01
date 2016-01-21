@@ -1,0 +1,18 @@
+
+RewriteEngine on 
+RewriteBase /test01
+ 
+RewriteCond $1 !^(index\.php|css|js|img|images|fonts|uploads|tools|cache|deploy|adminer\.php|timthumb\.php|resize_and_crop\.php|tmp|robots\.txt|mobile_files|server|testUpload|kitchensink)
+#RewriteRule ^(.*)$ /index.php/$1 [L]
+#RewriteRule ^books/(.*)$ http://dev.hardcover.me/books/index/$1 [R=301,L]
+
+
+
+#RewriteCond $1 !^(index\.php|css|js|img|images|fonts|uploads|tools|cache|deploy|adminer\.php|timthumb\.php|resize_and_crop\.php|tmp|robots\.txt|minify)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [QSA,L]
+
+
+
+RewriteRule ^(.*)xd_receiver.php(.*)$ xd_receiver.php$2 [QSA,L]
